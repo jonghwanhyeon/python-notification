@@ -1,12 +1,12 @@
 import requests
 
-from . import Provider
-from ..exceptions import NotificationException
+from . import Notifier
+from ..exceptions import NotifierException
 
 pushover_url = 'https://api.pushover.net/1/messages.json'
 allowed_parameters = { 'attachment', 'device', 'title', 'url', 'url_title', 'priority', 'sound', 'timestamp' }
 
-class Pushover(Provider):
+class Pushover(Notifier):
     def __init__(self, user, token):
         self.user = user
         self.token = token
@@ -26,6 +26,6 @@ class Pushover(Provider):
         respoonse_as_json = respoonse.json()
 
         if respoonse.status_code != 200:
-            raise NotificationException(respoonse_as_json['errors'][0])
+            raise NotifierException(respoonse_as_json['errors'][0])
 
         return respoonse_as_json['request']

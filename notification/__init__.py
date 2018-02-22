@@ -1,1 +1,1 @@
-from .providers.pushover import Pushover
+from .notifiers.pushover import Pushover
