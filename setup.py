@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='pynotification',
+    name='python-notification',
     version='1.0.0',
     description='A Python library to send notifications',
     url='https://github.com/jonghwanhyeon/python-notification',
